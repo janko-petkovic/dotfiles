@@ -33,7 +33,7 @@ ShowInstallerIsoInfo() {
 
 alias ls='ls --color=auto'
 alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
-alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
+alias l='ls -l'   # show long listing but no hidden dotfiles except "."
 
 [[ "$(whoami)" = "root" ]] && return
 
@@ -102,9 +102,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-# Change directory more easily using the fzy
+# Change directory more easily using the fzf
 cdfzy () {
-    DIR_PATH="$(find . -type d | fzf -e --scheme=path --border=rounded --margin=1% --padding=1%)"
+    DIR_PATH="$(find . -type d | fzf --scheme=path --border=rounded --margin=1% --padding=1%)"
     cd $DIR_PATH
 }
 

@@ -25,4 +25,4 @@ set.confirm = true
 set.hidden = true
 
 -- Colorscheme
-vim.cmd('colorscheme nordfox')
+vim.cmd('colorscheme terafox')

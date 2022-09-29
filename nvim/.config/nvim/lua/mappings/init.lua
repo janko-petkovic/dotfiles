@@ -5,15 +5,13 @@ local opts = { noremap = true, silent = true }
 -- Leader key space
 vim.g.mapleader = ' '
 
--- save and exit quickly
-------------------------------------------
-map('n', '<leader>w', ':wq<CR>', opts)
-
 -- handle splits more easily
 -------------------------------------------
-map('n', '<leader>o', ':on<CR>', opts)
-map('n', '<leader>s', ':split<CR>', opts)
-map('n', '<leader>v', ':vsplit<CR>', opts)
+map('n', '<A-q>', ':q<CR>', opts)
+map('i', '<A-q>', '<Esc> | :q<CR>', opts)
+map('n', '<A-o>', ':on<CR>', opts)
+map('n', '<A-s>', ':split<CR>', opts)
+map('n', '<A-v>', ':vsplit<CR>', opts)
 
 map('n', '<A-Left>', ':wincmd h<CR>', opts)
 map('n', '<A-Down>', ':wincmd j<CR>', opts)
@@ -23,8 +21,8 @@ map('n', '<A-Up>', ':wincmd k<CR>', opts)
 
 -- Compile latex stuff in tectonic project
 -- (remember to be in the project root for now)
-map('i', '<C-l>', '<Esc> | :w | !tectonic -X build<CR> | A', opts)
-map('n', '<C-l>', ':w | !tectonic -X build<CR>', opts)
+map('i', '<C-l>', '<Esc> | :w | !tectonic %<CR> | A', opts)
+map('n', '<C-l>', ':w | !tectonic %<CR>', opts)
 
 -- Nvim Tree
 ------------------------------------------------
