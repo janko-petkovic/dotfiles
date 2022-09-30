@@ -1,6 +1,14 @@
 local set = vim.opt
 
+-- Notification plugin
 vim.notify = require('notify')
+
+-- Colorscheme
+set.termguicolors = true
+set.background = 'dark'
+vim.cmd('let g:everforest_background = "hard"')
+vim.cmd('colorscheme everforest')
+
 
 set.number = true
 set.relativenumber = true
@@ -24,5 +32,3 @@ set.confirm = true
 
 set.hidden = true
 
--- Colorscheme
-vim.cmd('colorscheme terafox')
