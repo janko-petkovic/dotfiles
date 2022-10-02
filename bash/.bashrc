@@ -88,25 +88,25 @@ _open_files_for_editing() {
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/janko/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/janko/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/janko/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/janko/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/home/janko/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/janko/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/janko/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/janko/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
 
 
 # Change directory more easily using the fzf
-cdfzy () {
-    DIR_PATH="$(find . -type d | fzf --scheme=path --border=rounded --margin=1% --padding=1%)"
+cdfzf () {
+    DIR_PATH="$(fd . '/' -ut d | fzf --scheme=path --border=rounded --height=50% --margin=1% --padding=1%)"
     cd $DIR_PATH
 }
 
-alias sd='cdfzy'
+alias sd='cdfzf'
 

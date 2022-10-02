@@ -1,6 +1,5 @@
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
-    use "EdenEast/nightfox.nvim"        -- nightfox colortheme
     use 'sainnhe/everforest'            -- everforest colortheme
 
     -- GUI

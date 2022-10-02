@@ -5,8 +5,6 @@ vim.notify = require('notify')
 
 -- Colorscheme
 set.termguicolors = true
-set.background = 'dark'
-vim.cmd('let g:everforest_background = "hard"')
 vim.cmd('colorscheme everforest')
 
 
@@ -14,8 +12,8 @@ set.number = true
 set.relativenumber = true
 set.cursorline = true
 
-set.expandtab = true
-set.smarttab = true
+-- set.expandtab = true
+-- set.smarttab = true
 set.shiftwidth = 4
 set.tabstop = 4
 

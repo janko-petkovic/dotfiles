@@ -10,6 +10,7 @@ settings.
 - `packer` the plugin manager I use
 - `pyright` the python server for the tree-sitter
 - patched font (say from `https://www.nerdfonts.com/`)
+- themes: green 'everforest'
 
 ### LaTeX
 - `tectonic` is used to compile the latex material. The setup is still not perfect
@@ -22,4 +23,8 @@ view as the source file updates.
 
 ### Kitty
 - fonts: `Ubuntu Mono`, `Roboto Mono
+
+### Bash
+- `fd` an alternative to find to be used with `fzf` for the `sd` command. Dunno
+if it performs better but certainly gives many less graphical problems.
 
