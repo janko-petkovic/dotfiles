@@ -17,7 +17,7 @@ if [[ $(xrandr -q | grep -w 'HDMI-A-0 connected') ]]; then
 	# bspc monitor eDP      -d I II III IV V
 else
         # Only laptop
-	bspc monitor -d I II III IV X
+	bspc monitor -d I II III IV V
 fi
 
 
@@ -41,7 +41,7 @@ bspc rule -a Screenkey manage=off
 
 
 # Border
-bspc config focused_border_color        "#c1babd"
+bspc config focused_border_color        "#000000"
 bspc config normal_border_color         "#0d2b0d"
 bspc config active_border_color         "#0d2b0d"
 
@@ -50,18 +50,25 @@ bspc config active_border_color         "#0d2b0d"
 #
 # Set display from arandr saved script
 sh ~/.screenlayout/monitor.sh &
+
 # Bar
 ~/.config/polybar/launch.sh &
+
 # Notifications
 /usr/bin/dunst &
+
 # Polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # Wallpaper
 nitrogen --restore &
+
 # Dex
 dex -a -s /etc/xdg/autostart/:~/.config/autostart/  
+
 # Picom
 picom -CGb &
+
 # Network Applet
 nm-applet --indicator &
 

@@ -7,9 +7,9 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch Polybar
-polybar top -c ~/.config/polybar/config.ini &
+polybar bottom -c ~/.config/polybar/config.ini &
 
 if [[ $(xrandr -q | grep -w "HDMI-A-0 connected") ]]; then
-	polybar top_laptop -c ~/.config/polybar/config.ini &
+	polybar bottom_secondary -c ~/.config/polybar/config.ini &
 fi
 

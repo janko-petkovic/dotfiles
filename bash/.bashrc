@@ -103,10 +103,15 @@ _open_files_for_editing() {
 
 
 # Change directory more easily using the fzf
+# cdfzf () {
+#     DIR_PATH="$(fd . '/' -ut d | fzf --scheme=path --border=rounded --height=50% --margin=1% --padding=1%)"
+#     cd $DIR_PATH
+# }
+
+# A different version using fzy instead of fzf
 cdfzf () {
-    DIR_PATH="$(fd . '/' -ut d | fzf --scheme=path --border=rounded --height=50% --margin=1% --padding=1%)"
+    DIR_PATH="$(fd . /home/janko -ut d | fzy -sl 10)"
     cd $DIR_PATH
 }
-
 alias sd='cdfzf'
 
