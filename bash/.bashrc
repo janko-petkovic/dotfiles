@@ -101,13 +101,13 @@ _open_files_for_editing() {
 # unset __conda_setup
 # <<< conda initialize <<<
 
-# Activate environments without using conda
+# Activate environments without using pip
 _activate_virtualenv () {
 	source ~/.virtualenvs/$1/bin/activate
 }
 
 alias activate='_activate_virtualenv $1'
-activate pypesto-env
+activate pypesto
 
 
 #Change directory more easily using the fzf
