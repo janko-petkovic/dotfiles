@@ -121,9 +121,8 @@
 	(box	:orientation "v" 
 			:class "time" 
 			:valign "end"
-	(button	:onclick "scripts/popup calendar"	
-			:class "time-hour" hour)))
-(defpoll hour	:interval "1s"	"date '+%H:%M'")
+	(button	:onclick "scripts/popup calendar" :class "time-hour" hour)))
+(defpoll hour	:interval "1s"	"date '+%H%n%M'")
 (defpoll min	:interval "1s"	"date '+%M'")
 
 ;; Calendar Widgets ;;
@@ -207,6 +206,7 @@
 		 :orientation "v" 
 		 :vexpand "false" 
 		 :hexpand "false"
+(top)
 (end)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
