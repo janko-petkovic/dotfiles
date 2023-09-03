@@ -192,8 +192,8 @@ super + t
 super + c 
   vscodium
 
-super + z
-  zoom
+super + shift + p
+  maim -s | xclip -selection clipboard -t image/png -i
 
 super + F1
   ~/.config/bspwm/scripts/keybindings_rofi.sh

@@ -107,7 +107,7 @@ _activate_virtualenv () {
 }
 
 alias activate='_activate_virtualenv $1'
-activate pypesto
+activate pypesto-env
 
 
 #Change directory more easily using the fzf
