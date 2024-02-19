@@ -8,7 +8,7 @@ settings.
 
 - **Official**: dunst, less, rust, git, htop, openssh, stow, zathura,
 zathura-pdfmupdf, npm, unzip, fd, fzy, kitty, fuzzel, dolphin, brightnessclt,
-neovim, tree
+neovim, tree, mpv, man, swaybg, cmake, wget, xclip, biber
 
 - Install `paru`: in ~
 ```

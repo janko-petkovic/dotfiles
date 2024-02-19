@@ -85,21 +85,9 @@ _open_files_for_editing() {
 # alias pacdiff=eos-pacdiff
 ################################################################################
 
+# Add local executables
+export PATH="$PATH:~/.local/bin"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/janko/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/janko/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/janko/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/janko/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
 
 # Activate environments without using pip
 _activate_virtualenv () {
@@ -125,3 +113,4 @@ alias sd='cdfzf'
 
 alias sf="fzf --preview='bat --color=always --style=numbers {}' --bind shift-up:preview-page-up,shift-down:preview-page-down "
 
+alias bt="bluetoothctl"
