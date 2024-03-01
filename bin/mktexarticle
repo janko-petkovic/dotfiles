@@ -1,0 +1,60 @@
+#!/bin/bash
+
+PROJ_NAME=$1
+
+# Create the .tex project folder and the main.tex
+mkdir $PROJ_NAME
+touch $PROJ_NAME/main.tex
+touch $PROJ_NAME/biblio.bib
+
+# Fill the main with some boilerplate
+echo "\documentclass[a4paper, 10pt]{article}" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+
+# Encoding 
+echo "% Encoding" >> $PROJ_NAME/main.tex
+echo "\usepackage[T1]{fontenc}" >> $PROJ_NAME/main.tex
+echo "\usepackage[utf8]{inputenc}" >> $PROJ_NAME/main.tex
+echo "\usepackage[english]{babel}" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+
+# Margins
+echo "% Margins" >> $PROJ_NAME/main.tex
+echo "\usepackage[left=2.5cm, right=2.5cm]{geometry}" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+
+# Mathematics
+echo "% Mathematics" >> $PROJ_NAME/main.tex
+echo "\usepackage{amsmath, amssymb, mathtools, amsthm}" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+
+# Biblatex
+echo "% Bibliography (uncomment if needed)" >> $PROJ_NAME/main.tex
+echo "%\usepackage{csquotes}" >> $PROJ_NAME/main.tex
+echo "%\usepackage[backend=biber, sorting=none, style=nature]{biblatex}" >> $PROJ_NAME/main.tex
+echo "%\addbibresource{biblio.bib}" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+
+# Personal taste
+echo "% Personal taste" >> $PROJ_NAME/main.tex
+echo "\usepackage[font=footnotesize]{caption}" >> $PROJ_NAME/main.tex
+echo "\usepackage[parfill]{parskip}" >> $PROJ_NAME/main.tex
+echo -en "\n\n" >> $PROJ_NAME/main.tex
+
+# Heading 
+echo -n "\title{" >> $PROJ_NAME/main.tex
+echo -n $PROJ_NAME >> $PROJ_NAME/main.tex 
+echo "}" >> $PROJ_NAME/main.tex
+echo "\author{}" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+
+# Document body
+echo "\begin{document}" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+echo "  \maketitle" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+echo "  % \printbibliography" >> $PROJ_NAME/main.tex
+echo -en "\n" >> $PROJ_NAME/main.tex
+echo "\end{document}" >> $PROJ_NAME/main.tex
+
+

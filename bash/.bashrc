@@ -111,6 +111,4 @@ cdfzf () {
 }
 alias sd='cdfzf'
 
-alias sf="fzf --preview='bat --color=always --style=numbers {}' --bind shift-up:preview-page-up,shift-down:preview-page-down "
-
 alias bt="bluetoothctl"

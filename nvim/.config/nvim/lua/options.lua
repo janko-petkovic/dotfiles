@@ -17,7 +17,7 @@ opt.smartindent = true
 opt.hlsearch = true
 opt.incsearch = true
 
--- opt.termguicolors = false
+opt.termguicolors = false
 opt.scrolloff = 4
 opt.signcolumn = 'yes'
 
