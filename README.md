@@ -8,7 +8,8 @@ settings.
 
 - **Official**: dunst, less, rust, git, htop, openssh, stow, zathura,
 zathura-pdfmupdf, npm, unzip, fd, fzy, kitty, fuzzel, dolphin, brightnessclt,
-neovim, tree, mpv, man, swaybg, cmake, wget, xclip, biber
+neovim, tree, mpv, man, swaybg, cmake, wget, xclip, biber, ripgrep, grim, slurp,
+wl-clipboard, feh
 
 - Install `paru`: in ~
 ```
@@ -21,7 +22,7 @@ makepkg -sic
 ### Specifications
 Let's see what we need where.
 
-- Nvim: `npm`, `unzip`, `livetex`, `zathura`, `zathura-pdf-mupdf`
+- Nvim: `npm`, `unzip`, `livetex`, `zathura`, `zathura-pdf-mupdf`, `ripgrep`
 - Kitty: `ttf-ubuntu-mono-nerd`
 - Bash: `fd`, `fzy`
 

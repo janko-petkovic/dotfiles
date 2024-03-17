@@ -109,6 +109,7 @@ cdfzf () {
     DIR_PATH="$(fd . /home/janko -ut d | fzy -sl 10)"
     cd $DIR_PATH
 }
-alias sd='cdfzf'
+alias sd=cdfzf
 
 alias bt="bluetoothctl"
+alias ss='grim -g "$(slurp)" - | wl-copy'
