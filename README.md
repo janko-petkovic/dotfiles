@@ -4,12 +4,12 @@ The tree is already setup to stow everything in the correct folders once you clo
 
 ## Requirements
 A lazy file I will try to keep updated with the requirements for the
-settings.
+settings (I should really make a script ik)
 
 - **Official**: dunst, less, rust, git, htop, openssh, stow, zathura,
 zathura-pdfmupdf, npm, unzip, fd, fzy, kitty, fuzzel, dolphin, brightnessclt,
 neovim, tree, mpv, man, swaybg, cmake, wget, xclip, biber, ripgrep, grim, slurp,
-wl-clipboard, feh
+wl-clipboard, feh, firefox, xdg-desktop-portal, xdg-desktop-portal-hyprland
 
 - Install `paru`: in ~
 ```
@@ -17,14 +17,9 @@ mkdir src; cd src
 git clone https://aur.archlinux.org/paru.git; cd paru
 makepkg -sic
 ```
-- **AUR**: codium, brave-bin, wlsunset
 
-### Specifications
-Let's see what we need where.
+- **AUR**: codium, wlsunset, zoom
 
-- Nvim: `npm`, `unzip`, `livetex`, `zathura`, `zathura-pdf-mupdf`, `ripgrep`
-- Kitty: `ttf-ubuntu-mono-nerd`
-- Bash: `fd`, `fzy`
 
 ## Additional setup
 - Make the brightness modifiable by janko (udev or smt)
