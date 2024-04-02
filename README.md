@@ -28,3 +28,8 @@ view as the source file updates.
 - `fd` an alternative to find to be used with `fzf` for the `sd` command. Dunno
 if it performs better but certainly gives many less graphical problems.
 
+## Setting up the printer
+- Insatall cups
+- Check for the drivers on arch or the AUR
+- install system-config-printer
+- follow the utility

@@ -107,7 +107,7 @@ _activate_virtualenv () {
 }
 
 alias activate='_activate_virtualenv $1'
-activate pypesto-env
+activate pypesto
 
 
 #Change directory more easily using the fzf
@@ -124,4 +124,25 @@ cdfzf () {
 alias sd='cdfzf'
 
 alias sf="fzf --preview='bat --color=always --style=numbers {}' --bind shift-up:preview-page-up,shift-down:preview-page-down "
+
+alias bt='bluetoothctl'
+
+# Add ssh pw to agent
+# eval "$(ssh-agent -s)" > /dev/null
+# ssh-add ~/.ssh/id_ed25519
+
+function _mount_group_storage() {
+    mkdir -p ~/GroupStorage;
+    sshfs ieecr_compneurogroup@fdi-projekte.uni-bonn.de:/ieecr_compneurogroup \
+        ./GroupStorage
+}
+
+function _unmount_group_storage() {
+    fusermount -u ~/GroupStorage
+    rm -r ~/GroupStorage
+}
+alias mount_group_storage=_mount_group_storage
+alias unmount_group_storage=_unmount_group_storage
+
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 

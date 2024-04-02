@@ -184,10 +184,11 @@ super + Print
 
 # Shortcuts
 super + w
-  brave
+  firefox
+  # brave
 
-super + t 
-  thunar
+super + u
+  thunderbird
 
 super + c 
   vscodium

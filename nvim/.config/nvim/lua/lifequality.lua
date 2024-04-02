@@ -1,6 +1,7 @@
 -- OPTIONS
 --
 local opt = vim.opt
+local api = vim.api
 
 -- Tabulation
 opt.tabstop = 4
@@ -49,13 +50,12 @@ opt.completeopt = 'menuone,noselect'
 opt.termguicolors = true
 
 
-
-
-
 -- MAPPINGS
 --
 -- Keymaps for better default experience
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('', '<ESC>', '<ESC>:noh<CR>:lua require("notify").dismiss()<CR>', {silent = true})
 
+-- clipboard
+api.nvim_set_option('clipboard', 'unnamedplus')
 

@@ -1,0 +1,38 @@
+font.family : Open Sans
+
+axes.edgecolor : black
+axes.linewidth : 0.8
+axes.titlesize : 15
+axes.titleweight : normal
+axes.titlepad : 15
+axes.labelsize : 15    
+axes.labelpad : 10
+axes.axisbelow : True
+axes.formatter.limits : 0,2
+axes.formatter.use_mathtext : True
+axes.spines.left : True
+axes.spines.right : False
+axes.spines.top : False
+axes.prop_cycle :  cycler('color', ['1b9e77', 'd95f02','7570b3', 'e7298a', '66a61e', 'e6ab02', 'a6761d'])
+axes.xmargin : 0.1
+
+xtick.direction : in
+xtick.color : black
+xtick.major.size : 2
+
+ytick.direction : in
+ytick.color : black
+ytick.major.size : 2
+
+legend.frameon : False
+
+# Line plots
+lines.linewidth : 2
+
+# Errorbar plots
+errorbar.capsize : 0
+
+# Hisogram plots
+hist.bins : 20
+
+

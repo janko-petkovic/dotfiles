@@ -135,8 +135,9 @@ require('lazy').setup({
   {
     'sainnhe/everforest',
     config = function()
-      vim.opt.background = 'dark'
-      vim.cmd.let 'g:everforest_transparent_background=1'
+      vim.opt.background = 'light'
+      vim.g.everforest_background = 'soft'
+      vim.g.everforest_transparent_background = 0
       vim.cmd.colorscheme 'everforest'
     end,
   },
@@ -215,11 +216,12 @@ require('lazy').setup({
     config = function()
       vim.cmd.filetype 'plugin indent on'
       vim.cmd.syntax 'enable'
-      vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_view_general_viewer = 'evince'
+      -- vim.g.vimtex_view_method = 'evince'
       vim.g.vimtex_compiler_method = 'latexmk'
       vim.g.vimtex_compiler_latexmk = {
-        aux_dir = '../output/aux',
-        out_dir = '../output',
+        aux_dir = 'output/aux',
+        out_dir = 'output',
         callback = 1,
         continuous = 1,
         executable = 'latexmk',
@@ -232,7 +234,8 @@ require('lazy').setup({
       }
       vim.g.vimtex_quickfix_ignore_filters = {
         'Underfull',
-        'Overfull'
+        'Overfull',
+        'Package hyperref',
       }
     end
   },
