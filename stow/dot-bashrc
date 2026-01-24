@@ -91,12 +91,10 @@ export PATH="$PATH:~/.local/bin"
 
 # Activate environments without using pip
 _activate_virtualenv () {
-	source ~/.virtualenvs/$1/bin/activate
+	source ./$1/bin/activate
 }
 
 alias activate='_activate_virtualenv $1'
-activate pypesto
-
 
 #Change directory more easily using the fzf
 # cdfzf () {
@@ -113,3 +111,4 @@ alias sd=cdfzf
 
 alias bt="bluetoothctl"
 alias ss='grim -g "$(slurp)" - | wl-copy'
+
