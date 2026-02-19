@@ -5,7 +5,6 @@
         "tooltip-format": "btw"
     },
 
-
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -17,13 +16,7 @@
             "default": ""
         }
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
+
     "pulseaudio": {
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{icon} {volume}%  {format_source}",
@@ -40,57 +33,35 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "foot wiremix"
     },
+
     "network": {
-        "format-wifi": "   {essid} ({signalStrength}%)",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-wifi": "   {essid} ({signalStrength}%)", 
+        "format-ethernet": "",
+        "tooltip-format": "IPv4: {gwaddr}/{cidr}\nGateway: {gwaddr}",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-	"on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
-	 
+        "format-disconnected": "⚠",
+        "on-click": "nm-connection-editor"
     },
-    "cpu": {
-        "format": "  {usage}%",
-        "tooltip": true
-    },
-    "memory": {
-        "format": "  {}%",
-	"tooltip": true
-    },
-    "temperature": {
-        "interval": 10,
-        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
-        "critical-threshold": 100,
-        "format-critical": " {temperatureC}",
-        "format": " {temperatureC}°C"
-    },
+
     "hyprland/language": {
-       "format": "  {}",
+       "format": "{}",
        "format-en": "EN",
        "format-ru": "RU"
     },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-full": "{icon}  {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-alt": "{time}  {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
-    "clock": {
-        "format": "{:%H:%M | %e %B} ",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    }
 
+    "clock": {
+        "format": "{:%A, <b>%e %B %Y</b> | %H:%M:%S} ",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "interval": 1,
+        "on-click": "gnome-calendar",
+        "calendar" : {
+            "iso8601": true,
+            "format" : {
+                "today": "<span color='#3ddbd9'>{}</span>"
+            }
+        }
+    }
 }
 
