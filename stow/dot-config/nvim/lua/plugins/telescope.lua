@@ -1,30 +1,22 @@
 return {
-  'nvim-telescope/telescope.nvim',
-  branch = '0.1.x',
+  'nvim-telescope/telescope.nvim', version = '*',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-fzy-native.nvim'
+    -- optional but recommended
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   },
 
   config = function()
-    local telescope = require('telescope')
-    telescope.setup{
-      extensions = {
-        fzf_native = {
-          override_generic_sorter = false,
-          override_file_sorter = true
-        }
-      }
-    }
-    telescope.load_extension('fzy_native')
-
-
+    local map = vim.keymap.set
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-    vim.keymap.set({'n','v'}, '<leader>gs', builtin.live_grep, {})
-    vim.keymap.set('n', '<leader>?', builtin.oldfiles, {})
-    vim.keymap.set('n', '<leader>/', builtin.buffers, {})
-    vim.keymap.set('n', '<leader><leader>', builtin.current_buffer_fuzzy_find, {})
 
+    map('', '<leader>pl', builtin.planets, {})
+    map('', '<leader><leader>', builtin.builtin, {})
+    map('', '<leader>ff', builtin.find_files, {})
+    map('', '<leader>?', builtin.oldfiles, {})
+    map('', '<leader>/', builtin.buffers, {})
+    map('', '<leader>gs', builtin.live_grep, {})
   end
 }
+
+

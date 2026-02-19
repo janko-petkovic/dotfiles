@@ -1,39 +1,22 @@
-local map = vim.keymap.set
-
+map = vim.keymap.set
 vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
+vim.g.maplocalleader = '\\' -- the first backslash is for escaping
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+local lang_exec_table = {
+  lua="lua",
+  python="python",
+}
 
--- Don't use esc all the time 
 map('i', 'jk', '<Esc>')
+map('n', 'J', 'J^')
 
--- clipboard copy-pasting
-map({"n", "v"}, "<C-y>", '"+y')
-map({"n", "v"}, "<C-p>", '"+p')
+map('n', '<leader>df', vim.diagnostic.open_float, { desc = 'Floating diagnostics'})
+map('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list'})
 
--- delete without changing the registers
-map({'n', 'x'}, 'x', '"_x')
-map({'n', 'x'}, 'X', '"_d')
-
-map({'n'}, 'J', 'J^')
-
-
-
-
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
+map('n', '<leader>r', function()
+    local file_name = vim.fn.expand("%")
+    local file_type = vim.bo.filetype
+    vim.cmd("!" .. lang_exec_table[file_type] .. " " .. file_name)
   end,
-  group = highlight_group,
-  pattern = '*',
-})
+  { desc = 'Run the currently open buffer' }
+)
