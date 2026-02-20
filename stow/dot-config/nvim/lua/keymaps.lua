@@ -36,12 +36,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Launch the code in the buffer
-vim.keymap.set('n', '<leader>r', function()
+map('n', '<leader>r', function()
     local file_name = vim.fn.expand("%")
-    local lang = vim.bo.filetype
-    print(lang_exec_table[lang] .. " " .. file_name)
-    -- os.execute(lang_exec_table[lang] .. " " .. file_name)
+    local file_type = vim.bo.filetype
+    vim.cmd("!" .. lang_exec_table[file_type] .. " " .. file_name)
   end,
-  {desc = 'run the code in the buffer'}
+  { desc = 'Launch the currently open buffer' }
 )
 
