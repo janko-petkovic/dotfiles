@@ -3,6 +3,11 @@ local map = vim.keymap.set
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
+lang_exec_table = {
+  lua='lua',
+  python='python',
+}
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -10,17 +15,9 @@ map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Don't use esc all the time 
 map('i', 'jk', '<Esc>')
 
--- clipboard copy-pasting
-map({"n", "v"}, "<C-y>", '"+y')
-map({"n", "v"}, "<C-p>", '"+p')
-
 -- delete without changing the registers
 map({'n', 'x'}, 'x', '"_x')
 map({'n', 'x'}, 'X', '"_d')
-
-
-
-
 
 
 -- Diagnostic keymaps
@@ -37,3 +34,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- Launch the code in the buffer
+vim.keymap.set('n', '<leader>r', function()
+    local file_name = vim.fn.expand("%")
+    local lang = vim.bo.filetype
+    print(lang_exec_table[lang] .. " " .. file_name)
+    -- os.execute(lang_exec_table[lang] .. " " .. file_name)
+  end,
+  {desc = 'run the code in the buffer'}
+)
+
