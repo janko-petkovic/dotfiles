@@ -1,46 +1,46 @@
-local map = vim.keymap.set
-
+map = vim.keymap.set
 vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
+vim.g.maplocalleader = '\\' -- the first backslash is for escaping
 
-lang_exec_table = {
-  lua='lua',
-  python='python',
+local lang_exec_table = {
+  lua="lua",
+  python="python",
 }
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Don't use esc all the time 
 map('i', 'jk', '<Esc>')
+map('n', 'J', 'J^')
 
--- delete without changing the registers
-map({'n', 'x'}, 'x', '"_x')
-map({'n', 'x'}, 'X', '"_d')
+-- Windows
+--Moving
+map('n', '<C-l>', '<C-w>l')
+map('n', '<C-h>', '<C-w>h')
+map('n', '<C-k>', '<C-w>k')
+map('n', '<C-j>', '<C-w>j')
+--Resizing
+map('n', '=', '<cmd>horizontal resize +1<cr>')
+map('n', '+', '<cmd>horizontal resize -1<cr>')
+map('n', '-', '<cmd>vertical resize +1<cr>')
+map('n', '_', '<cmd>vertical resize -1<cr>')
+--Splitting
+map('n', '<leader>s', '<cmd>sp<cr>')
+map('n', '<leader>v', '<cmd>vs<cr>')
+
+-- Dianostics
+map('n', '<leader>df', vim.diagnostic.open_float, { desc = 'Floating diagnostics'})
+map('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list'})
 
 
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
-
--- Launch the code in the buffer
+-- Utils
+--Running (broken)
 map('n', '<leader>r', function()
     local file_name = vim.fn.expand("%")
     local file_type = vim.bo.filetype
     vim.cmd("!" .. lang_exec_table[file_type] .. " " .. file_name)
   end,
-  { desc = 'Launch the currently open buffer' }
+  { desc = 'Run the currently open buffer' }
 )
 
+
+--Sourcing
+map('n', '<leader>w', function()
+  vim.api.nvim_cmd({cmd="source", args={vim.fn.expand("%")}}, {}) end, {})

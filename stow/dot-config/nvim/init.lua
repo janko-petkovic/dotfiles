@@ -1,4 +1,6 @@
--- Does it track?
+-- Thinkgs to do:
+-- Keymaps: something with cnext and stuff
+-- Plugins: telescope, lsp, mason, 
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -23,3 +25,5 @@ require('lazy').setup({
     { import = 'plugins' }
   }
 })
+
+vim.lsp.enable('pyright')
