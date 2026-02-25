@@ -16,6 +16,14 @@ return {
     map('', '<leader>?', builtin.oldfiles, {})
     map('', '<leader>/', builtin.buffers, {})
     map('', '<leader>gs', builtin.live_grep, {})
+    map('', '<leader>gs', builtin.live_grep, {})
+
+    require('telescope').load_extension('refactoring')
+    map({'n','x'}, '<leader>rf', function() 
+        require('telescope').extensions.refactoring.refactors()
+      end,
+      {}
+    )
   end
 }
 
