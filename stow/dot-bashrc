@@ -91,7 +91,7 @@ export PATH="$PATH:~/.local/bin"
 
 # Activate environments without using pip
 _activate_virtualenv () {
-	source ./$1/bin/activate
+	source ./${1-.venv}/bin/activate
 }
 
 alias activate='_activate_virtualenv $1'
