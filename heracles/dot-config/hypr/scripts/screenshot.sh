@@ -1,0 +1,1 @@
+../../../../defaults/dot-config/hypr/scripts/screenshot.sh

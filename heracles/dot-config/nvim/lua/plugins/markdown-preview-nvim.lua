@@ -1,0 +1,1 @@
+../../../../../defaults/dot-config/nvim/lua/plugins/markdown-preview-nvim.lua
