@@ -95,8 +95,6 @@ _activate_virtualenv () {
 }
 
 alias activate='_activate_virtualenv $1'
-<<<<<<<< HEAD:stow_lazarus/dot-bashrc
-========
 # activate pypesto
 
 
@@ -105,7 +103,6 @@ alias activate='_activate_virtualenv $1'
 #     DIR_PATH="$(fd . '/' -ut d | fzf --scheme=path --border=rounded --height=50% --margin=1% --padding=1%)"
 #     cd $DIR_PATH
 # }
->>>>>>>> heracles:stow_heracles/dot-bashrc
 
 # A different version using fzy instead of fzf
 cdfzf () {
@@ -116,4 +113,3 @@ alias sd=cdfzf
 
 alias bt="bluetoothctl"
 alias ss='grim -g "$(slurp)" - | wl-copy'
-
