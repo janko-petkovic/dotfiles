@@ -1,28 +1,14 @@
-# NEW LOGIC:
-# 1. Restow from local folder. Use ignore=default --no-fold
-# 2. Stow from default folder, using ignore with a list of parsed arguments
-#    from the local folder (and --no-fold)
-# In this way, you don't have to crossymlink or bother deleting and 
-# recreating folders.
-
-
-
 function usage()
 {
   cat << EOF
 Usage: pestow [OPTIONS] ARGS
 
 Arguments:
-  path
-        Path to the dotfiles source folder - usually named after the machine's 
-        name.
+  profile
+				Name of the profile name - the name of the folder located in
+				./profiles. Usually I name it after the system's name.
 
 Options:
-  -f, --force
-        Passes the -f flag to the underlying stow command. Use this flag when
-        pushing the configuration on a system that has been initialized with a
-        different folder (for example when trying out new dotfiles).
-
   -h, --help
         Show this tooltip.
 
@@ -35,45 +21,56 @@ Options:
         'path' or the default folder (includes an '--ignore=.' flag in the
         underlying stow call)
 
+  -s, --switch
+				Use this flag when stowing a new profile with a different profile
+				already present (for example when trying out new dotfiles).
+
   -u, --unstow
-        Equivalent to 'stow -D args', I just wanted to wrap it. 
+        If you want to remove all the current symlinks in the system.
 
 Examples:
   I still need to write these
 EOF
 }
 
+function stow_defaults_no_conflict() {
+	orig_files_in_profile=$(find $PROFILE_PATH -not -type l,d)
 
-function push_default_dotfiles() {
-  new_files=$(find $1 -not -type l,d)
-
-  IGNORE_FLAGS=""
-
-  echo "Updating defaults in $1..."
-  echo "Changed files that will not be linked:"
-  for f in $new_files; do
+	ignore_flags=""
+  for f in $orig_files_in_profile; do
     echo " > $f"
     ignore_str=$(echo $f | sed 's/$1\///g')
-    export IGNORE_FLAGS=$IGNORE_FLAGS"--ignore=$ignore_str "
+    export ignore_flags=$ignore_flags"--ignore=$ignore_str "
   done
-
-  stow defaults -t $1 --no-fold $IGNORE_FLAGS
-
-  echo "Defaults updated."
+	
+  stow $DEFAULT_PROFILE $STOW_FLAGS $ignore_flags
 }
 
+function stow_profile() {
+	stow $SOURCE $STOW_FLAGS 
+}
 
-function stow_dotfiles() {
-  echo -n "Stowing $1..."
-  stow $1 --restow --no-fold --dotfiles
-  echo "done."
+function stow_profile_override() {
+	stow $SOURCE $OVERRIDE_STOW_FLAGS
+}
+
+function unstow_all() {
+	echo "stow $SOURCE $UNSTOW_FLAGS"
+	echo "stow $DEFAULT_PROFILE $UNSTOW_FLAGS"
+	stow $PROFILE_PATH $UNSTOW_FLAGS
+	stow $DEFAULT_PROFILE $UNSTOW_FLAGS
 }
 
 function main() {
-  DEFAULT_FOLDER="defaults"
-  UPDATE_FLAGS="--no-fold"
-  STOW_FLAGS="--no-fold --dotfiles"
+	PROFILE_NAME="lazarus"
+	PROFILES_FOLDER="profiles"
+	DEFAULT_PROFILE="dotfiles.d"
+	SOURCE="-d $DEFAULT_PROFILE $PROFILE_NAME"
+	#  STOW_FLAGS="--no-fold --dotfiles"
+	#  OVERRIDE_STOW_FLAGS="--no-fold --dotfiles --override=."
+	#  UNSTOW_FLAGS="-D --no-fold --dotfiles"
+	PROFILE_PATH=$PROFILES_FOLDER/$PROFILE_NAME
+	unstow_all
 }
-
 
 main "$@"
