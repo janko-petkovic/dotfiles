@@ -1,0 +1,1 @@
+../../../../../profiles/lazarus/dot-config/nvim-old/lua/plugins/configs/luasnip.lua

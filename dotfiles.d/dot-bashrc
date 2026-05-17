@@ -89,27 +89,21 @@ _open_files_for_editing() {
 export PATH="$PATH:~/.local/bin"
 
 
-# Activate environments without using pip
+# Activate environments
 _activate_virtualenv () {
-	source ./${1-.venv}/bin/activate
+  target = $(find -type d -name $1)
+  echo target
+	# source ./${1-.venv}/bin/activate
 }
 
 alias activate='_activate_virtualenv $1'
-# activate pypesto
-
-
-#Change directory more easily using the fzf
-# cdfzf () {
-#     DIR_PATH="$(fd . '/' -ut d | fzf --scheme=path --border=rounded --height=50% --margin=1% --padding=1%)"
-#     cd $DIR_PATH
-# }
 
 # A different version using fzy instead of fzf
-cdfzf () {
+cdfzy () {
     DIR_PATH="$(fd . /home/janko -ut d | fzy -sl 10)"
     cd $DIR_PATH
 }
-alias sd=cdfzf
+alias sd=cdfzy
 
 alias bt="bluetoothctl"
 alias ss='grim -g "$(slurp)" - | wl-copy'
