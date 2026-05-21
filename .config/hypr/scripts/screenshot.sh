@@ -1,0 +1,1 @@
+../../../profiles/lazarus/dot-config/hypr/scripts/screenshot.sh

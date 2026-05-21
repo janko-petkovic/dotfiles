@@ -91,21 +91,36 @@ export PATH="$PATH:~/.local/bin"
 
 # Activate environments without using pip
 _activate_virtualenv () {
-	source ./${1-.venv}/bin/activate
+  
+  venv_name=${1:-.venv}
+  # First in the same folder
+  activate_path=$(pwd)
+  
+  # Then in git repo root
+  git_path=$(git rev-parse --show-toplevel 2> /dev/null)
+  if [ $? -ne 0 ]; then
+    echo -ne "\033[33m[W] Currently not working in a git repository. "
+    echo -e "Not searching for virtual environment of repo.\033[0m"
+  else 
+    export activate_path=$activate_path:$git_path
+  fi
+
+  # Finally the globals
+  export activate_path=$activate_path:~/.virtualenvs
+
+  for path in ${activate_path//:/ }; do
+    source_path=$path/$venv_name/bin/activate
+    source $source_path 2> /dev/null
+    if [ $? -eq 0 ]; then
+      echo -e "\033[32m[S] Activated $venv_name from $path\033[0m"
+      return 0
+    fi
+  done
+  echo -e "\033[31;1m[E] Virtual environment $venv_name not found.\033[0m"
+  return 1
 }
 
 alias activate='_activate_virtualenv $1'
-<<<<<<<< HEAD:stow_lazarus/dot-bashrc
-========
-# activate pypesto
-
-
-#Change directory more easily using the fzf
-# cdfzf () {
-#     DIR_PATH="$(fd . '/' -ut d | fzf --scheme=path --border=rounded --height=50% --margin=1% --padding=1%)"
-#     cd $DIR_PATH
-# }
->>>>>>>> heracles:stow_heracles/dot-bashrc
 
 # A different version using fzy instead of fzf
 cdfzf () {

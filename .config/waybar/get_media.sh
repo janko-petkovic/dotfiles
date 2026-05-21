@@ -1,0 +1,1 @@
+../../profiles/lazarus/dot-config/waybar/get_media.sh

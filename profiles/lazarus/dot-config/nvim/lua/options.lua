@@ -8,7 +8,7 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.wrap = false
 
-opt.textwidth = 80
+opt.textwidth = 79
 
 opt.smartindent = true
 opt.autoindent = true
