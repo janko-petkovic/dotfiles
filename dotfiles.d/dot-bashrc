@@ -113,3 +113,6 @@ alias sd=cdfzf
 
 alias bt="bluetoothctl"
 alias ss='grim -g "$(slurp)" - | wl-copy'
+
+# Added by RunMat installer
+export PATH="/home/janko/.local/bin:$PATH"
