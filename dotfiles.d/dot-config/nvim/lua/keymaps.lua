@@ -21,7 +21,7 @@ map('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics lis
 map('n', '<leader>w', function()
   vim.api.nvim_cmd({cmd="source", args={vim.fn.expand("%")}}, {}) end, {})
 
-map({'n', 'i'}, "<leader>o", vim.cmd.Oil, {desc='Open oil'})
+map('n', "<leader>o", vim.cmd.Oil, {desc='Open oil'})
 
 
 
