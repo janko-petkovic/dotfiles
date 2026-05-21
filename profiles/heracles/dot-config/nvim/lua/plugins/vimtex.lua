@@ -1,1 +1,0 @@
-../../../../../defaults/dot-config/nvim/lua/plugins/vimtex.lua

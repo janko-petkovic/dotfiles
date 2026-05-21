@@ -1,1 +1,0 @@
-../../../../defaults/dot-config/hypr/scripts/toggle_wlsunset.sh
