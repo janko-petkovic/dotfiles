@@ -1,0 +1,25 @@
+# Blurring
+# blur enable
+# blur_xray enable
+# blur_radius 2
+# blur_passes 3
+# blur_saturation 0.87
+# blur_brightness 0.96
+# blur_contrast 0.8
+# blur_noise 0
+
+# Borders/gaps
+default_border pixel 0
+default_floating_border none
+# corner_radius 10
+gaps inner 3px
+
+# Colors
+# class                 border    backgr.   text    indicator   child_border
+client.focused          #ffffff22 #000000   #ffffff #ffffff22  #ffffff22
+client.focused_inactive #ffffff22 #5f676a   #ffffff #ffffff22   #ffffff22
+client.unfocused        #ffffff11 #222222   #888888 #ffffff22   #ffffff11
+
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+

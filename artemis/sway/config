@@ -1,0 +1,8 @@
+# Read `man 5 sway` for a complete reference.
+
+include ./config.d/eyecandy
+include ./config.d/IO
+include ./config.d/keybindings
+include ./config.d/options
+include ./config.d/startup
+include ./config.d/swaybar

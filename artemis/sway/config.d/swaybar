@@ -1,0 +1,26 @@
+bar {
+  id "master_bar"
+  
+  # gaps 5 7
+  gaps 5 3
+  position bottom
+  # font IBM Plex Sans Regular
+  font Atkinson Hyperlegible 
+  # Regular
+  # font Nimbus Roman Regular
+
+  # status_command exec ~/.config/sway/config.d/scripts/swaybar_status_command.sh
+  status_command ~/.config/sway/config.d/scripts/swaybar_status_command.sh
+  # align center
+  separator_symbol "A"
+
+  colors {
+    statusline #ffffff
+    background #161616ff
+    # inactive_workspace #323232aa #323232aa #ffffff55
+    inactive_workspace #161616ff #161616ff #ffffff55
+    # active_workspace #32323200 #32323200 #5c5c5c
+    focused_workspace #161616ff #161616ff #ffffffff
+  }
+}
+

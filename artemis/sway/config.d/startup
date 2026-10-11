@@ -1,0 +1,3 @@
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec wlsunset -l 50.9 -L 4.7
+exec swayidle -C $HOME/.config/sway/config.d/swayidle
