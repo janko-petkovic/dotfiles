@@ -1,0 +1,110 @@
+# Defaults 
+set $mod Mod4
+set $alt Mod1
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term foot
+set $menu wmenu-run
+set $browser firefox
+
+floating_modifier $mod
+
+# Applications / commands
+bindsym {
+  # Utils
+  $mod+Return exec $term 
+  $mod+x kill
+  $mod+w exec firefox
+  $mod+Space exec $menu
+  $mod+delete exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
+
+  # Session
+  $mod+Ctrl+r reload
+  $mod+Ctrl+l exec swaylock -C $HOME/.config/sway/config.d/swaylock
+  $mod+Ctrl+q exec swaymsg exit
+}
+
+# This stuff I don't undertsand super well, I need to see better the splitting
+# thing
+bindsym {
+  $mod+b splith
+  $mod+v splitv
+  $mod+t floating toggle
+  $mod+d layout toggle split
+  $mod+f fullscreen
+}
+
+#
+# Moving around:
+#
+# Move your focus around
+bindsym {
+  $mod+$left focus left
+  $mod+$down focus down
+  $mod+$up focus up
+  $mod+$right focus right
+}
+
+
+# Workspaces:
+bindsym {
+  $mod+1 workspace 1
+  $mod+2 workspace 2
+  $mod+3 workspace 3
+  $mod+4 workspace 4
+  $mod+5 workspace 5
+  $mod+6 workspace 6
+  $mod+7 workspace 7
+  $mod+8 workspace 8
+  $mod+9 workspace 9
+  $mod+0 workspace 10
+
+  $mod+$alt+l workspace next
+  $mod+$alt+h workspace prev
+
+  $mod+shift+l [con_id=__focused__] move window to workspace next, focus
+  $mod+shift+h [con_id=__focused__] move window to workspace prev, focus
+}
+
+# Scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+minus scratchpad show
+
+
+# Special keys
+bindsym --locked {
+  XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+  XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+  XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+  XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+  XF86MonBrightnessDown exec brightnessctl set 5%-
+  XF86MonBrightnessUp exec brightnessctl set 5%+
+}
+
+# Resizing
+bindsym {
+  $mod+Left resize shrink width 10px
+  $mod+Down resize grow height 10px
+  $mod+Up resize shrink height 10px
+  $mod+Right resize grow width 10px
+}
+
+# For inspiration about modes
+# mode "resize" {
+#     bindsym $left resize shrink width 10px
+#     bindsym $down resize grow height 10px
+#     bindsym $up resize shrink height 10px
+#     bindsym $right resize grow width 10px
+#
+#     # Return to default mode
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+# bindsym $mod+r mode resize
+
+
+

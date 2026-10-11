@@ -1,0 +1,54 @@
+# Background
+image=$HOME/pictures/foliage.jpg
+scaling=center
+
+# Layout indicator
+show-keyboard-layout
+font=Atkinson Hyperlegible
+font-size=20
+layout-border-color=#00000000
+layout-bg-color=#00000000
+layout-text-color=#ffffff55
+
+# Indicator
+indicator-caps-lock
+indicator-idle-visible
+indicator-radius=20
+indicator-thickness=2
+
+# Normal
+inside-color=#00000000
+line-color=#00000000
+ring-color=#ffffff55
+separator-color=#00000000
+text-color=#00000000
+
+# Caps
+inside-caps-lock-color=#ffffff55
+line-caps-lock-color=#00000000
+ring-caps-lock-color=#ffffff55
+text-caps-lock-color=#00000000
+
+# Inserting
+key-hl-color=#ffffffff
+bs-hl-color=#00000000
+caps-lock-key-hl-color=#ffffffff
+caps-lock-bs-hl-color=#00000000
+
+# Clear
+inside-clear-color=#00000000
+line-clear-color=#ffffff11
+ring-clear-color=#00000000
+text-clear-color=#00000000
+
+# Verification
+inside-ver-color=#00000000
+line-ver-color=#00000000
+ring-ver-color=#ffffff55
+text-ver-color=#00000000
+
+# Wrong
+inside-wrong-color=#ff000000
+line-wrong-color=#00000000
+ring-wrong-color=#cc333399
+text-wrong-color=#00000000

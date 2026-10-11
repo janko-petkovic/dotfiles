@@ -1,0 +1,2 @@
+timeout 300 'swaylock -f -C $HOME/.config/sway/config.d/swaylock'
+timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
