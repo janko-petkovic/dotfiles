@@ -1,3 +1,8 @@
+# Import scripts
+set $scripts_folder $HOME/.config/sway/scripts/
+set $wp_focus $scripts_folder/wp_focus
+set $wp_move_window $scripts_folder/wp_move_window
+
 # Defaults 
 set $mod Mod4
 set $alt Mod1
@@ -8,17 +13,18 @@ set $up k
 set $right l
 
 set $term foot
-set $menu wmenu-run
-set $browser firefox
+set $menu rofi -show drun -theme gruvbox-dark-soft
+set $browser vivaldi
 
 floating_modifier $mod
 
 # Applications / commands
 bindsym {
+
   # Utils
   $mod+Return exec $term 
   $mod+x kill
-  $mod+w exec firefox
+  $mod+w exec $browser
   $mod+Space exec $menu
   $mod+delete exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
 
@@ -63,16 +69,18 @@ bindsym {
   $mod+9 workspace 9
   $mod+0 workspace 10
 
-  $mod+$alt+l workspace next
-  $mod+$alt+h workspace prev
-
-  $mod+shift+l [con_id=__focused__] move window to workspace next, focus
-  $mod+shift+h [con_id=__focused__] move window to workspace prev, focus
+  # $mod+$alt+l workspace next
+  $mod+$alt+l exec $wp_focus next
+  $mod+$alt+h exec $wp_focus prev
+  
+  # $wp_move_window next
+  $mod+Shift+l exec $wp_move_window next
+  $mod+Shift+h exec $wp_move_window prev
 }
 
 # Scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-    bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 
 # Special keys

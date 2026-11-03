@@ -5,5 +5,5 @@ default_orientation auto
 # Window rules
 for_window [app_id="python3"] floating enable
 for_window [class="Matplotlib"] floating enable
-for_window [app_id="firefox"] move scratchpad, focus, resize set 1200 800
+for_window [app_id="vivaldi"] move scratchpad, focus, resize set 2400 1300
 for_window [app_id="com.github.maoschanz.drawing"] floating enable

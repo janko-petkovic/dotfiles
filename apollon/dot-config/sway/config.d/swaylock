@@ -1,5 +1,5 @@
 # Background
-image=$HOME/pictures/foliage.jpg
+image=$HOME/Pictures/flower.jpg
 scaling=center
 
 # Layout indicator

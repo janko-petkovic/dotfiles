@@ -9,14 +9,14 @@
 # blur_noise 0
 
 # Borders/gaps
-default_border pixel 0
-default_floating_border none
-# corner_radius 10
+default_border pixel 2
+default_floating_border pixel 2
 gaps inner 3px
+gaps outer 0px
 
 # Colors
 # class                 border    backgr.   text    indicator   child_border
-client.focused          #ffffff22 #000000   #ffffff #ffffff22  #ffffff22
+client.focused          #ffffffff #000000   #ffffff #ffffff22  #ffffff22
 client.focused_inactive #ffffff22 #5f676a   #ffffff #ffffff22   #ffffff22
 client.unfocused        #ffffff11 #222222   #888888 #ffffff22   #ffffff11
 
